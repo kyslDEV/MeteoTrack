@@ -10,6 +10,7 @@ from meteotrack.services.weather_analysis_service import WeatherAnalysisService
 RAIN_FORECAST_HOURS = 12
 RAIN_PROBABILITY_THRESHOLD = 40
 RAIN_PRECIPITATION_THRESHOLD = 0.1
+LOCAL_GRID_CELL_SELECTION = "nearest"
 
 
 def _load_requests():
@@ -63,6 +64,7 @@ class OpenMeteoService:
             "end_date": end_date.isoformat(),
             "daily": "temperature_2m_min,temperature_2m_max,temperature_2m_mean",
             "timezone": self.city_settings.timezone,
+            "cell_selection": LOCAL_GRID_CELL_SELECTION,
         }
 
         try:
@@ -87,6 +89,7 @@ class OpenMeteoService:
             "hourly": "precipitation_probability,precipitation",
             "forecast_days": 1,
             "timezone": self.city_settings.timezone,
+            "cell_selection": LOCAL_GRID_CELL_SELECTION,
         }
 
         try:
