@@ -1,0 +1,5 @@
+customtkinter==5.2.2
+matplotlib==3.10.3
+mysql-connector-python==9.3.0
+python-dotenv==1.1.0
+requests==2.32.4
